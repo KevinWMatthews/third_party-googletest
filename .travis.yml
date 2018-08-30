@@ -32,14 +32,14 @@ matrix:
     - os: linux
       group: deprecated-2017Q4
       compiler: clang
-      env: BUILD_TYPE=Debug VERBOSE=1
+      env: BUILD_TYPE=Debug VERBOSE=1 - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
     - os: linux
       group: deprecated-2017Q4
       compiler: clang
-      env: BUILD_TYPE=Release VERBOSE=1 CXX_FLAGS=-std=c++11
+      env: BUILD_TYPE=Release VERBOSE=1 CXX_FLAGS=-std=c++11 - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
     - os: linux
       compiler: clang
-      env: BUILD_TYPE=Release VERBOSE=1 CXX_FLAGS=-std=c++11 NO_EXCEPTION=ON NO_RTTI=ON COMPILER_IS_GNUCXX=ON
+      env: BUILD_TYPE=Release VERBOSE=1 CXX_FLAGS=-std=c++11 NO_EXCEPTION=ON NO_RTTI=ON COMPILER_IS_GNUCXX=ON - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
     - os: osx
       compiler: gcc
       env: BUILD_TYPE=Debug VERBOSE=1
@@ -72,10 +72,10 @@ addons:
     #   https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
     sources:
     - ubuntu-toolchain-r-test
-    - llvm-toolchain-precise-3.7
+    - llvm-toolchain-precise-3.9
     packages:
     - g++-4.9
-    - clang-3.7
+    - clang-3.9
 
 notifications:
   email: false
